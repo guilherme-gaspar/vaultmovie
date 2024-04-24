@@ -1,6 +1,6 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package com.guilhermegaspar.vaultmovie
+package com.guilhermegaspar.vaultmovie.presentation.home.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.guilhermegaspar.vaultmovie.R
 
 @Composable
 fun HomeAppBar(

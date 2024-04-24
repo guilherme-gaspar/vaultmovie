@@ -1,8 +1,9 @@
-package com.guilhermegaspar.vaultmovie
+package com.guilhermegaspar.vaultmovie.presentation.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.guilhermegaspar.vaultmovie.recipes.FavoriteMovie
+import com.guilhermegaspar.vaultmovie.domain.usecase.GetPopularMoviesUseCase
+import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,3 +60,7 @@ data class MainViewState(
     val followedMovies: PersistentList<FavoriteMovie> = persistentListOf(),
     val selectedHomeCategory: HomeCategory = HomeCategory.Discover
 )
+
+enum class HomeCategory {
+    Library, Discover
+}

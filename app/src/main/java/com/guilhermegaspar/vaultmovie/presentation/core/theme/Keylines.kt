@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guilhermegaspar.vaultmovie.ui.theme
+package com.guilhermegaspar.vaultmovie.presentation.core.theme
 
 import androidx.compose.ui.unit.dp
 

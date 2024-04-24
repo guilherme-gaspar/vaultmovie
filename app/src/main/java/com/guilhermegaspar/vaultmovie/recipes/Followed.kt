@@ -37,7 +37,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.guilhermegaspar.vaultmovie.R
-import com.guilhermegaspar.vaultmovie.ui.theme.Keyline1
+import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
+import com.guilhermegaspar.vaultmovie.presentation.core.theme.Keyline1
 import kotlinx.collections.immutable.PersistentList
 
 

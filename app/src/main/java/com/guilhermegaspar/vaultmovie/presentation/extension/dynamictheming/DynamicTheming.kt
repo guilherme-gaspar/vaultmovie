@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guilhermegaspar.vaultmovie
+package com.guilhermegaspar.vaultmovie.presentation.extension.dynamictheming
 
 import android.content.Context
 import androidx.collection.LruCache

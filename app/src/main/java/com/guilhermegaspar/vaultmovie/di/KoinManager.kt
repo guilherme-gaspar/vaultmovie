@@ -1,7 +1,7 @@
 package com.guilhermegaspar.vaultmovie.di
 
-import com.guilhermegaspar.vaultmovie.GetPopularMoviesUseCase
-import com.guilhermegaspar.vaultmovie.MainViewModel
+import com.guilhermegaspar.vaultmovie.domain.usecase.GetPopularMoviesUseCase
+import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewModel
 import com.guilhermegaspar.vaultmovie.data.remote.MovieService
 import com.guilhermegaspar.vaultmovie.network.di.getNetworkModule
 import org.koin.androidx.viewmodel.dsl.viewModel

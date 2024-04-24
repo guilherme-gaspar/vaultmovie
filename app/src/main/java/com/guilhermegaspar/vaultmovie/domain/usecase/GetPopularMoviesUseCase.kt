@@ -1,8 +1,8 @@
-package com.guilhermegaspar.vaultmovie
+package com.guilhermegaspar.vaultmovie.domain.usecase
 
 import android.util.Log
 import com.guilhermegaspar.vaultmovie.data.remote.MovieService
-import com.guilhermegaspar.vaultmovie.recipes.FavoriteMovie
+import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.toPersistentList
 

@@ -1,4 +1,4 @@
-package com.guilhermegaspar.vaultmovie.ui.theme
+package com.guilhermegaspar.vaultmovie.presentation.core.theme
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.ui.graphics.Color
