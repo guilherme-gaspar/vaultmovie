@@ -31,7 +31,7 @@ import com.guilhermegaspar.vaultmovie.presentation.home.ui.TopBar
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewModel
 import com.guilhermegaspar.vaultmovie.presentation.extension.dynamictheming.rememberDominantColorState
 import com.guilhermegaspar.vaultmovie.presentation.core.theme.MinContrastOfPrimaryVsSurface
-import com.guilhermegaspar.vaultmovie.presentation.core.theme.NutrifitTheme
+import com.guilhermegaspar.vaultmovie.presentation.core.theme.VaultMovieTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
-            NutrifitTheme {
+            VaultMovieTheme {
                 // A surface container using the 'background' color from the theme
                 val viewState by viewModel.state.collectAsState()
                 Surface(
@@ -86,7 +86,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    NutrifitTheme {
+    VaultMovieTheme {
 
     }
 }

@@ -15,7 +15,7 @@ private val Montserrat = FontFamily(
     Font(R.font.montserrat_semibold, FontWeight.SemiBold)
 )
 
-val NutrifitTypography = Typography(
+val VaultMovieTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = Montserrat,
         fontSize = 96.sp,

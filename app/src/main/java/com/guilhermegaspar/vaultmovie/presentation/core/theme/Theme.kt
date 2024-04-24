@@ -4,12 +4,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 
 @Composable
-fun NutrifitTheme(
+fun VaultMovieTheme(
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
-        colorScheme = NutrifitColors,
-        typography = NutrifitTypography,
+        colorScheme = VaultMovieColors,
+        typography = VaultMovieTypography,
         content = content
     )
 }

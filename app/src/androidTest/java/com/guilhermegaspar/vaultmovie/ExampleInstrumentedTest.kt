@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.guilhermegaspar.nutrifit", appContext.packageName)
+        assertEquals("com.guilhermegaspar.VaultMovie", appContext.packageName)
     }
 }
