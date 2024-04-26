@@ -2,7 +2,6 @@ package com.guilhermegaspar.vaultmovie.domain.usecase
 
 import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.test.runTest
