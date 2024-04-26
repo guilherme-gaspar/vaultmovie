@@ -32,8 +32,8 @@ import com.guilhermegaspar.vaultmovie.presentation.extension.dynamictheming.Domi
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.HomeCategory
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewModel
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewState
-import com.guilhermegaspar.vaultmovie.recipes.PopularMovieItem
-import com.guilhermegaspar.vaultmovie.recipes.recipesItems
+import com.guilhermegaspar.vaultmovie.presentation.movie.ui.FavoriteMovieItem
+import com.guilhermegaspar.vaultmovie.presentation.movie.ui.popularMovieItems
 
 @Composable
 fun DominantColorComponent(
@@ -89,7 +89,7 @@ fun HomeContent(
     LazyColumn(modifier = Modifier.fillMaxSize()) {
 
         item {
-            PopularMovieItem(
+            FavoriteMovieItem(
                 items = viewState.followedMovies,
                 pagerState = pagerState,
                 onPodcastUnfollowed = {},
@@ -118,7 +118,7 @@ fun HomeContent(
 
         when (viewState.selectedHomeCategory) {
             HomeCategory.Library -> {
-                recipesItems(
+                popularMovieItems(
                     items = viewState.followedMovies,
                     viewModel::onTogglePodcastFollowed
                 )

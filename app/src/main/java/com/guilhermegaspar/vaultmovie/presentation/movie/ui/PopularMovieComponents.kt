@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guilhermegaspar.vaultmovie.recipes
+package com.guilhermegaspar.vaultmovie.presentation.movie.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -58,12 +58,12 @@ import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
 import com.guilhermegaspar.vaultmovie.presentation.core.theme.Keyline1
 import kotlinx.collections.immutable.PersistentList
 
-fun LazyListScope.recipesItems(
+fun LazyListScope.popularMovieItems(
     items: PersistentList<FavoriteMovie>,
     onTogglePodcastFollowed: (FavoriteMovie) -> Unit
 ) {
     items(items, key = { it.id }) { item ->
-        EpisodeListItem(
+        PopularMovieListItem(
             item,
             onClick = {},
             modifier = Modifier.fillParentMaxWidth(),
@@ -74,7 +74,7 @@ fun LazyListScope.recipesItems(
 
 
 @Composable
-fun EpisodeListItem(
+fun PopularMovieListItem(
     item: FavoriteMovie,
     onClick: (String) -> Unit,
     modifier: Modifier = Modifier,

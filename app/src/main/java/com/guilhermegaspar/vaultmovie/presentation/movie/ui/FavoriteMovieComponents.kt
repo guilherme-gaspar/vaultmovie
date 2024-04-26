@@ -1,4 +1,4 @@
-package com.guilhermegaspar.vaultmovie.recipes
+package com.guilhermegaspar.vaultmovie.presentation.movie.ui
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -44,7 +44,7 @@ import kotlinx.collections.immutable.PersistentList
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PopularMovieItem(
+fun FavoriteMovieItem(
     items: PersistentList<FavoriteMovie>,
     pagerState: PagerState,
     onPodcastUnfollowed: (String) -> Unit,
@@ -53,7 +53,7 @@ fun PopularMovieItem(
     Column(modifier = modifier) {
         Spacer(Modifier.height(16.dp))
 
-        PopularMovies(
+        FavoriteMovies(
             items = items,
             pagerState = pagerState,
             onPodcastUnfollowed = onPodcastUnfollowed,
@@ -69,7 +69,7 @@ fun PopularMovieItem(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PopularMovies(
+fun FavoriteMovies(
     items: PersistentList<FavoriteMovie>,
     pagerState: PagerState,
     modifier: Modifier = Modifier,
@@ -80,7 +80,7 @@ fun PopularMovies(
         modifier = modifier
     ) { page ->
         val (id, imageUrl, title) = items[page]
-        PopularMovieCarouselItem(
+        FavoriteMovieCarouselItem(
             podcastImageUrl = imageUrl,
             podcastTitle = title,
             onUnfollowedClick = { onPodcastUnfollowed("podcast.uri") },
@@ -94,7 +94,7 @@ fun PopularMovies(
 
 
 @Composable
-private fun PopularMovieCarouselItem(
+private fun FavoriteMovieCarouselItem(
     modifier: Modifier = Modifier,
     podcastImageUrl: String? = null,
     podcastTitle: String? = null,
@@ -121,7 +121,7 @@ private fun PopularMovieCarouselItem(
                 )
             }
 
-            ToggleFollowPopularMovieIconButton(
+            ToggleFollowFavoriteMovieIconButton(
                 onClick = onUnfollowedClick,
                 isFollowed = true, /* All podcasts are followed in this feed */
                 modifier = Modifier.align(Alignment.BottomEnd)
@@ -145,7 +145,7 @@ private fun PopularMovieCarouselItem(
 }
 
 @Composable
-fun ToggleFollowPopularMovieIconButton(
+fun ToggleFollowFavoriteMovieIconButton(
     isFollowed: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
