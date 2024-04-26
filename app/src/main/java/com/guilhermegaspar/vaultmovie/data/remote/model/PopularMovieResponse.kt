@@ -1,8 +1,8 @@
-package com.guilhermegaspar.vaultmovie.data.remote
+package com.guilhermegaspar.vaultmovie.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MovieResponse(
+data class PopularMovieResponse(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

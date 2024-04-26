@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalFoundationApi::class)
+@file:OptIn(ExperimentalFoundationApi::class, ExperimentalFoundationApi::class)
 
 package com.guilhermegaspar.vaultmovie.presentation.home.ui
 
@@ -119,7 +119,7 @@ fun HomeContent(
         when (viewState.selectedHomeCategory) {
             HomeCategory.Library -> {
                 popularMovieItems(
-                    items = viewState.followedMovies,
+                    items = viewState.popularMovies,
                     viewModel::onTogglePodcastFollowed
                 )
             }

@@ -1,24 +1,13 @@
 package com.guilhermegaspar.vaultmovie.domain.usecase
 
-import android.util.Log
-import com.guilhermegaspar.vaultmovie.data.remote.MovieService
-import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
+import com.guilhermegaspar.vaultmovie.domain.model.PopularMovie
+import com.guilhermegaspar.vaultmovie.domain.repository.MovieRepository
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.toPersistentList
 
-class GetPopularMoviesUseCase(val service: MovieService) {
+class GetPopularMoviesUseCase(private val repository: MovieRepository) {
 
-    suspend operator fun invoke(): PersistentList<FavoriteMovie> {
-        val movies = service.getPopularMovies()
-
-        Log.i("Teste movies", "Quais os movies? ${movies.results[4]}")
-
-        return movies.results.map {
-            FavoriteMovie(
-                id = it.id.toString(),
-                imageUrl = "https://image.tmdb.org/t/p/original${it.backdropPath}",
-                title = it.title
-            )
-        }.toPersistentList()
+    suspend operator fun invoke(): PersistentList<PopularMovie> {
+        return repository.getPopularMovies().toPersistentList()
     }
 }

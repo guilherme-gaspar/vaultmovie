@@ -54,13 +54,13 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.guilhermegaspar.vaultmovie.R
-import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
+import com.guilhermegaspar.vaultmovie.domain.model.PopularMovie
 import com.guilhermegaspar.vaultmovie.presentation.core.theme.Keyline1
 import kotlinx.collections.immutable.PersistentList
 
 fun LazyListScope.popularMovieItems(
-    items: PersistentList<FavoriteMovie>,
-    onTogglePodcastFollowed: (FavoriteMovie) -> Unit
+    items: PersistentList<PopularMovie>,
+    onTogglePodcastFollowed: (PopularMovie) -> Unit
 ) {
     items(items, key = { it.id }) { item ->
         PopularMovieListItem(
@@ -75,10 +75,10 @@ fun LazyListScope.popularMovieItems(
 
 @Composable
 fun PopularMovieListItem(
-    item: FavoriteMovie,
+    item: PopularMovie,
     onClick: (String) -> Unit,
     modifier: Modifier = Modifier,
-    onTogglePodcastFollowed: (FavoriteMovie) -> Unit
+    onTogglePodcastFollowed: (PopularMovie) -> Unit
 ) {
     ConstraintLayout(modifier = modifier.clickable { onClick("") }) {
         val (
@@ -209,8 +209,8 @@ fun PopularMovieListItem(
             IconButton(
                 onClick = {
                     onTogglePodcastFollowed(
-                        FavoriteMovie(
-                            "1234124",
+                        PopularMovie(
+                            1234124,
                             "https://image.tmdb.org/t/p/original/v2jeLDyutkblaey5YEmS2y0fTA8.jpg",
                             "Title 4+"
                         )
