@@ -32,7 +32,7 @@ import com.guilhermegaspar.vaultmovie.presentation.extension.dynamictheming.Domi
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.HomeCategory
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewModel
 import com.guilhermegaspar.vaultmovie.presentation.main.viewmodel.MainViewState
-import com.guilhermegaspar.vaultmovie.recipes.FollowedPodcastItem
+import com.guilhermegaspar.vaultmovie.recipes.PopularMovieItem
 import com.guilhermegaspar.vaultmovie.recipes.recipesItems
 
 @Composable
@@ -89,7 +89,7 @@ fun HomeContent(
     LazyColumn(modifier = Modifier.fillMaxSize()) {
 
         item {
-            FollowedPodcastItem(
+            PopularMovieItem(
                 items = viewState.followedMovies,
                 pagerState = pagerState,
                 onPodcastUnfollowed = {},

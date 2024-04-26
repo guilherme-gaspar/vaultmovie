@@ -44,7 +44,7 @@ import kotlinx.collections.immutable.PersistentList
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun FollowedPodcastItem(
+fun PopularMovieItem(
     items: PersistentList<FavoriteMovie>,
     pagerState: PagerState,
     onPodcastUnfollowed: (String) -> Unit,
@@ -53,7 +53,7 @@ fun FollowedPodcastItem(
     Column(modifier = modifier) {
         Spacer(Modifier.height(16.dp))
 
-        FollowedPodcasts(
+        PopularMovies(
             items = items,
             pagerState = pagerState,
             onPodcastUnfollowed = onPodcastUnfollowed,
@@ -69,7 +69,7 @@ fun FollowedPodcastItem(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun FollowedPodcasts(
+fun PopularMovies(
     items: PersistentList<FavoriteMovie>,
     pagerState: PagerState,
     modifier: Modifier = Modifier,
@@ -80,7 +80,7 @@ fun FollowedPodcasts(
         modifier = modifier
     ) { page ->
         val (id, imageUrl, title) = items[page]
-        FollowedPodcastCarouselItem(
+        PopularMovieCarouselItem(
             podcastImageUrl = imageUrl,
             podcastTitle = title,
             onUnfollowedClick = { onPodcastUnfollowed("podcast.uri") },
@@ -94,7 +94,7 @@ fun FollowedPodcasts(
 
 
 @Composable
-private fun FollowedPodcastCarouselItem(
+private fun PopularMovieCarouselItem(
     modifier: Modifier = Modifier,
     podcastImageUrl: String? = null,
     podcastTitle: String? = null,
@@ -121,7 +121,7 @@ private fun FollowedPodcastCarouselItem(
                 )
             }
 
-            ToggleFollowPodcastIconButton(
+            ToggleFollowPopularMovieIconButton(
                 onClick = onUnfollowedClick,
                 isFollowed = true, /* All podcasts are followed in this feed */
                 modifier = Modifier.align(Alignment.BottomEnd)
@@ -145,7 +145,7 @@ private fun FollowedPodcastCarouselItem(
 }
 
 @Composable
-fun ToggleFollowPodcastIconButton(
+fun ToggleFollowPopularMovieIconButton(
     isFollowed: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
