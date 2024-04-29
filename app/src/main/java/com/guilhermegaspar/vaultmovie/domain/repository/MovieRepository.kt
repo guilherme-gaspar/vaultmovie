@@ -8,4 +8,8 @@ interface MovieRepository {
     suspend fun getPopularMovies(): List<PopularMovie>
 
     suspend fun getFavoriteMovies(): List<FavoriteMovie>
+
+    suspend fun saveFavoriteMovie(favoriteMovie: FavoriteMovie)
+
+    suspend fun deleteFavoriteMovie(id: Int)
 }

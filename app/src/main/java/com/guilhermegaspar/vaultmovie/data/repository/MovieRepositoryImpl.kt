@@ -17,9 +17,15 @@ class MovieRepositoryImpl(
     }
 
     override suspend fun getFavoriteMovies(): List<FavoriteMovie> {
-        return cacheDataSource.getFavoriteMovies().map {
-            FavoriteMovie(0, "", "")
-        }
+        return cacheDataSource.getFavoriteMovies()
+    }
+
+    override suspend fun saveFavoriteMovie(favoriteMovie: FavoriteMovie) {
+        cacheDataSource.saveFavoriteMovie(favoriteMovie)
+    }
+
+    override suspend fun deleteFavoriteMovie(id: Int) {
+        cacheDataSource.deleteFavoriteMovie(id)
     }
 
 }

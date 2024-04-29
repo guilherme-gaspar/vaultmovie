@@ -6,17 +6,23 @@ import com.guilhermegaspar.vaultmovie.domain.usecase.GetPopularMoviesUseCase
 import com.guilhermegaspar.vaultmovie.domain.model.FavoriteMovie
 import com.guilhermegaspar.vaultmovie.domain.model.PopularMovie
 import com.guilhermegaspar.vaultmovie.domain.model.toFavoriteMovie
+import com.guilhermegaspar.vaultmovie.domain.usecase.DeleteFavoriteMovieUseCase
+import com.guilhermegaspar.vaultmovie.domain.usecase.GetFavoriteMoviesUseCase
+import com.guilhermegaspar.vaultmovie.domain.usecase.SaveFavoriteMovieUseCase
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
-import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val useCase: GetPopularMoviesUseCase) : ViewModel() {
+class MainViewModel(
+    private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
+    private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase,
+    private val saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase,
+    private val deleteFavoriteMovieUseCase: DeleteFavoriteMovieUseCase
+) : ViewModel() {
 
     private val selectedHomeCategory = MutableStateFlow(HomeCategory.Discover)
     private val refreshing = MutableStateFlow(false)
@@ -36,13 +42,11 @@ class MainViewModel(private val useCase: GetPopularMoviesUseCase) : ViewModel() 
                 popularMovies
             ) { selectedHomeCategory, _, _, _ ->
                 MainViewState(
-                    followedMovies = useCase.invoke().map { it.toFavoriteMovie() }
-                        .toPersistentList(),
+                    followedMovies = getFavoriteMoviesUseCase(),
+                    popularMovies = getPopularMoviesUseCase(),
                     selectedHomeCategory = selectedHomeCategory,
-                    popularMovies = useCase.invoke()
                 )
             }.catch { throwable ->
-                // TODO: emit a UI error here. For now we'll just rethrow
                 throw throwable
             }.collect {
                 _state.value = it
@@ -56,9 +60,15 @@ class MainViewModel(private val useCase: GetPopularMoviesUseCase) : ViewModel() 
         selectedHomeCategory.value = category
     }
 
-    fun onTogglePodcastFollowed(movie: PopularMovie) {
-        _state.update {
-            it.copy(followedMovies = followedMovies.value.add(movie.toFavoriteMovie()))
+    fun onToggleMovieFollowed(movie: PopularMovie) {
+        viewModelScope.launch {
+            saveFavoriteMovieUseCase(movie.toFavoriteMovie())
+        }
+    }
+
+    fun onToggleMovieUnfollowed(movieId: Int) {
+        viewModelScope.launch {
+            deleteFavoriteMovieUseCase.invoke(movieId)
         }
     }
 }

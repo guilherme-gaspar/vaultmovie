@@ -120,7 +120,7 @@ fun HomeContent(
             HomeCategory.Library -> {
                 popularMovieItems(
                     items = viewState.popularMovies,
-                    viewModel::onTogglePodcastFollowed
+                    viewModel::onToggleMovieFollowed
                 )
             }
 
